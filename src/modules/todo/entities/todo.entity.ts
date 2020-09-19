@@ -1,5 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 
+// GetOne
+// GetMany
+// Post (Create (?OR Update))
+// ?Put/Patch (Replace/Update)
+// Delete (Delete)
 @Entity()
 export class Todo {
     @PrimaryGeneratedColumn()
@@ -8,6 +13,6 @@ export class Todo {
     @Column()
     title: string;
 
-    @Column({ default: false })
-    isACompleted: boolean;
+    @Column({default: false})
+    isCompleted: boolean;
 }
