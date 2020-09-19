@@ -7,13 +7,7 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { Todo } from '../entities/todo.entity';
 import { CreateDto, UpdateDto } from './dto';
-// GetOne
-// GetMany
-// Post (Create (?OR Update))
-// ?Put/Patch (Replace/Update)
-// Delete (Delete)
 
 @Controller('rest/todo')
 export class TodoController {
