@@ -5,10 +5,12 @@ export class NotFoundResponse {
     default: 404,
   })
   statusCode: number;
+
   @ApiProperty({
     default: 'Todo with ID = % not exist',
   })
   message: string;
+
   @ApiProperty({
     default: 'Not Found',
   })
