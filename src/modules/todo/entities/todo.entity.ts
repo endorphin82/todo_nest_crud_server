@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 
 // GetOne
 // GetMany
@@ -7,12 +8,15 @@ import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 // Delete (Delete)
 @Entity()
 export class Todo {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @ApiProperty()
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title: string;
+  @ApiProperty()
+  @Column()
+  title: string;
 
-    @Column({default: false})
-    isCompleted: boolean;
+  @ApiProperty()
+  @Column({ default: false })
+  isCompleted: boolean;
 }
