@@ -58,7 +58,11 @@ export class TodoController {
   }
 
   @Delete(':id')
-  deleteAction(@Param('id') id: string): Promise<DeleteResult> {
-    return this.todoService.remove(id);
+  async deleteAction(@Param('id') id: string): Promise<DeleteResult> {
+    const todo = await this.todoService.findOne(id);
+    if (todo === undefined) {
+      throw new NotFoundException(`Todo with ID = ${id} not exist`);
+    }
+    return await this.todoService.remove(id);
   }
 }
