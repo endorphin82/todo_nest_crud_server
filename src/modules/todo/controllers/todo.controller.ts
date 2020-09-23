@@ -14,12 +14,13 @@ import { TodoService } from '../services/todo.service';
 import { Todo } from '../entities/todo.entity';
 import { DeleteResult } from 'typeorm/query-builder/result/DeleteResult';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
-import {NotFoundResponse} from "./type";
+import { NotFoundResponse } from './type';
 
 @ApiTags('todo')
 @Controller('rest/todo')
 export class TodoController {
-  constructor(private readonly todoService: TodoService) {}
+  constructor(private readonly todoService: TodoService) {
+  }
 
   @Get()
   @ApiResponse({
@@ -40,7 +41,7 @@ export class TodoController {
   @ApiResponse({
     status: 404,
     description: 'Not Found',
-    type: NotFoundResponse
+    type: NotFoundResponse,
   })
   async getOneAction(@Param('id') id: string): Promise<Todo> {
     const todo = await this.todoService.findOne(id);

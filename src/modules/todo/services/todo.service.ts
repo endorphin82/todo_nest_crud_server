@@ -1,15 +1,16 @@
-import {Injectable} from '@nestjs/common';
-import {Todo} from '../entities/todo.entity';
-import {Repository} from 'typeorm';
-import {InjectRepository} from '@nestjs/typeorm';
-import {DeleteResult} from 'typeorm/query-builder/result/DeleteResult';
+import { Injectable } from '@nestjs/common';
+import { Todo } from '../entities/todo.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { DeleteResult } from 'typeorm/query-builder/result/DeleteResult';
 
 @Injectable()
 export class TodoService {
   constructor(
     @InjectRepository(Todo)
     private todoRepository: Repository<Todo>,
-  ) {}
+  ) {
+  }
 
   findAll(): Promise<Todo[]> {
     return this.todoRepository.find();
